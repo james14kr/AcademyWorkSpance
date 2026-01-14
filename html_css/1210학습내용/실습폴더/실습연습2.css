@@ -1,0 +1,29 @@
+table{
+  width: 700px;
+  margin: 30px auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table > thead > tr{
+  border-top: 2px solid black;
+  border-bottom: 1px solid lightgray;
+}
+
+table > tbody > tr{
+  border-bottom: 1px solid lightgray;
+}
+
+table td{
+  padding: 8px;
+}
+
+
+tbody td:nth-child(3){
+  text-align: left;
+}
+
+tbody tr:nth-child(even){
+  background-color: lightgray;
+}
+

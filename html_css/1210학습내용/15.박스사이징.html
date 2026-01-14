@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .container{
+      border: 5px solid red;
+      margin: 20px;
+      width: 500px;
+      font-size: 2rem;
+    }
+
+    .inner1{
+      border: 5px solid black;
+      width: 500px;
+      padding: 0px 10px;
+    }
+
+    .inner2{
+      border: 5px solid black;
+      width: 500px;
+      padding : 0px 10px;
+      box-sizing: border-box; /* width 속성을 테두리 크기로 계산*/
+    }
+    
+  </style>
+
+</head>
+<body>
+
+  <!-- 기본적으로 width 속성은 컨텐츠의 크기를 의미 (padding, border는 제외) -->
+
+  <h2>Box-sizing</h2>
+  <div class="container">
+    <div class="inner1">
+      box:sizing : content-box
+    </div>
+  </div>
+  
+  <h2>Box-sizing</h2>
+  <div class="container">
+    <div class="inner2">
+      box:sizing : content-box
+    </div>
+  </div>
+
+</body>
+</html>

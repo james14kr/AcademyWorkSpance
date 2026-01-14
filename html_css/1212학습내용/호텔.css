@@ -1,0 +1,107 @@
+body{
+  background-color: #caf4ff;
+}
+
+.container{
+  background-color: white;
+  width: 400px;
+  margin: 50px auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.img-container{
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.img-container > span{
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+}
+
+img{
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+
+.img-container:hover img{
+  transform: scale(1.2);
+}
+
+.text-container{
+  padding: 10px 10px;
+}
+
+.price{
+  font-size: 2rem;
+  color: orange;
+}
+
+.text-container > p:last-child{
+  color: gray;
+}
+
+.icon-text{
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 15px 30px;
+}
+
+.icon-text > span:last-child{
+  margin-left: 20px;
+}
+
+hr{
+  margin-top: 10px;
+}
+
+.profil-container{
+  /* border: 1px solid black; */
+  padding: 5px, 15px;
+  display: flex;
+}
+
+.profil-img > img{
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid lightgray;
+}
+
+.profil-img{
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.profil-text{
+  width: 50%;
+  margin-left: 5px;
+}
+
+.profil-text > p{
+  font-weight: bold;
+}
+
+.profil-btn{
+  /* border: 1px solid black; */
+  width: 30%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.profil-btn > button{
+  height: 30px;
+  width: 100px;
+  color: white;
+  background-color: #32cd32;
+  border: none;
+  border-radius: 8px;
+}

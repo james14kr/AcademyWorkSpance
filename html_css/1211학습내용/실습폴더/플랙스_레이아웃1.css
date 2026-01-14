@@ -1,0 +1,36 @@
+.container{
+  border: 5px solid black;
+  width: 600px;
+  height: 500px;
+  margin: 30px auto;
+}
+
+div{
+  border: 3px solid #000000;
+}
+
+.header{
+  height: 15%;
+  border-color: aqua;
+}
+
+.main{
+  display: flex;
+  height: 70%;
+  border-color: red;
+}
+
+.main > div:first-child{
+  width: 30%;
+  border-color: orange;
+}
+
+.main > div:last-child{
+  width: 70%;
+  border-color: green;
+}
+
+.footer{
+  height: 15%;
+  border-color: bisque;
+}

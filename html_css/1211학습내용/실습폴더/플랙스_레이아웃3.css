@@ -1,0 +1,38 @@
+div{
+  border: 3px solid black;
+}
+
+.container{
+  width: 500px;
+  height: 400px;
+  margin: 30px auto;
+}
+
+.first{
+  height: 20%;
+  border-color: brown;
+}
+
+.second{
+  height: 80%;
+  border-color: green;
+  display: flex;
+}
+
+.second > div:first-child{
+  width: 60%;
+  border-color: blue;
+}
+
+.second > div:last-child{
+  width: 40%;
+  border-color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+}
+
+.second > div:last-child div{
+  height: 100%;
+  border-color: orange;
+}
+

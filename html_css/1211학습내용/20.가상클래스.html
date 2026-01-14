@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="reset.css">
+
+  <style>
+    .div1{
+      width: 150px;
+      height: 150px;
+      background-color: crimson;
+      color: white;
+      text-align: center;
+      line-height: 150px;
+      transition: all 0.5s;
+    }
+
+    /* hover : 마우스를 올릴 때 발생하는 이벤트 */
+    .div1:hover{
+      background-color: aqua;
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      line-height: 200px;
+    }
+
+    input{
+      width: 200px;
+      padding: 6px;
+      border: 1px solid blueviolet;
+      border-radius: 6px;
+      transition: all 1s;
+    }
+
+    /* input태그에 클릭하면(활성화) */
+    input:focus{
+      width: 250px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <h2>가상클래스 </h2>
+  <p>
+    실제로 존재하는 요소(태그)에 특정 이벤트와 환경에 맞춰 가상의 클래스로 css를 제어
+  </p>
+
+  <hr>
+
+  <div class="div1">div1</div>
+
+  <input type="text">
+
+  
+</body>
+</html>

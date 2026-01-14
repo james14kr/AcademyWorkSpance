@@ -1,0 +1,58 @@
+<!-- 
+  1.선택자가 같다면 가장 마지막에 지정한 속성이 적용
+  2.선택자가 다른 경우에는 높은 우선순위의 선택자 속성이 적용
+  1순위 - !important 속성 부여
+  2순위 - inline (html 파일의 태그에 style 속성을 사용하는 방식)
+  3순위 - 아이디 선택자
+  4순위 - 클래스 선택자
+  5순위 - 태그명 선택자 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="reset.css">
+
+  <style>
+
+    #a{
+      color: yellow;
+    }    
+
+    div{
+      color: red;
+    }
+
+    .div1{
+      border: 1px solid black;
+      color: green;
+    }
+
+    div{
+      background-color: antiquewhite;
+      color: blue;
+    }
+
+    .div3{
+      background-color: lightskyblue !important;
+    }
+
+  </style>
+
+</head>
+<body>
+  
+  <h2>선택자 우선순위</h2>
+
+  <div class="div1" id="a" style="color: aqua;">div 태그입니다</div>
+
+  <div style="color: black;">두 번쨰 div</div>
+
+  <div style="background-color: yellow;" class="div3">세 번째 div</div>
+
+</body>
+</html>

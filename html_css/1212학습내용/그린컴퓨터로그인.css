@@ -1,0 +1,82 @@
+.container{
+  border: 1px solid lightgray;
+  width: 800px;
+  margin: 50px auto;
+  padding: 30px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+.detail{
+  padding: 10px 15px;
+  gap: 30px;
+}
+
+.form{
+  background-color: lightgray;
+  width: 50%;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.form > p{
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.form input[type = "text"], input[type = "password"]{
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 3px 3px;
+}
+
+.checkbox{
+  display: flex;
+  justify-content: left;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.form button{
+  width: 100px;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.detail{
+  display: flex;
+}
+
+.text{
+  width: 50%;
+}
+
+.text > h4{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.text > p{
+  font-size: 0.8rem;
+}
+
+.text > button{
+  width: 100%;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  padding: 5px 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #87cefa;
+  color: white;
+}
+
+.text > div{
+  margin-top: 5px;
+  text-align: center;
+  color: #6bb46b;
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="0203시험대비.css">
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div>
+      <h1>회원가입</h1>
+      
+      <table>
+        <tr>
+          <th>회원구분<span class="required">*</span></th>
+          <td>
+            <input type="radio" name="member">개인회원
+            <input type="radio" name="member">외국인회원
+          </td>
+        </tr>
+      </table>
+  
+      <h1>기본정보</h1>
+      <table>
+  
+        <tr>
+          <th>아이디<span class="required">*</span></th>
+          <td>
+            <input type="text">(영문소문자/숫자, 4~16자)
+          </td>
+        </tr>
+  
+        <tr>
+          <th>비밀번호<span class="required">*</span></th>
+          <td>
+            <input type="password">(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8~16자)
+          </td>
+        </tr>
+  
+        <tr>
+          <th>비밀번호 확인<span class="required">*</span></th>
+          <td>
+            <input type="password">
+          </td>
+        </tr>
+  
+        <tr>
+          <th>이름<span class="required">*</span></th>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+  
+        <tr>
+          <th>주소</th>
+          <td class="address">
+            <div>
+              <input type="text" style="width: 100px;">
+              <button type="button">우편번호  ></button>
+            </div>
+            <div>
+              <input type="text" style="width: 300px;">기본주소
+            </div>
+            <div>
+              <input type="text" style="width: 300px;">나머지주소(선택입력가능)
+            </div>
+          </td>
+        </tr>
+  
+        <tr>
+          <th>일반전화</th>
+          <td>
+            <select>
+              <option>02</option>
+              <option>01</option>
+              <option>03</option>
+              <option>04</option>
+            </select>
+            <span>-</span>
+            <input type="tel">
+            <span>-</span>
+            <input type="tel">
+          </td>
+        </tr>
+  
+        <tr>
+          <th>휴대전화<span class="required">*</span></th>
+          <td>
+            <select>
+              <option>010</option>
+              <option>020</option>
+              <option>030</option>
+              <option>04-</option>
+            </select>
+            <span>-</span>
+            <input type="tel">
+            <span>-</span>
+            <input type="tel">
+          </td>
+        </tr>
+  
+        <tr>
+          <th>SMS 수신여부<span class="required">*</span></th>
+          <td>
+            <input type="checkbox">동의함
+            <p>쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
+          </td>
+        </tr>
+  
+        <tr>
+          <th>이메일<span class="required">*</span></th>
+          <td><input type="email">
+          </td>
+        </tr>
+  
+        <tr>
+          <th>이메일 수신여부<span class="required">*</span></th>
+          <td>
+            <input type="checkbox">동의함
+            <p>쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
+          </td>
+        </tr>
+  
+        <tr>
+          <th>평생회원</th>
+          <td>
+            <input type="radio" name="agr">동의함 <input type="radio" name="agr">동의안함
+            <p>쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
+            <p>- 평생회원으로 가입하시면 스타일 때 탈퇴시까지는 휴면회원으로 진행되지 않으며, 고객님의 개인정복 탈퇴시까지 안전하게 보관됩니다.</p>
+            <p>- 지금 평생회원으로 가입하시면 쿠폰혜택을 드립니다.(쿠폰혜택을 받으신 경우, 3개월간 평생회원을 유지하셔야 합니다.)</p>
+          </td>
+        </tr>
+  
+      </table>
+  
+  
+      <h1>추가정보</h1>
+  
+      <table class="bottom">
+        
+        <tr>
+          <th>생년원일<span class="required">*</span></th>
+          <td>
+            <input type="text" class="short">
+            <span>년</span>
+            <input type="text">
+            <span>월</span>
+            <input type="text">
+            <span>일</span>
+            <input type="radio" name="date">양력
+            <input type="radio" name="date">음력
+            <span>(14세 미만 회원가입을 제안하고 있습니다.)</span>
+          </td>
+        </tr>
+
+        <tr>
+          <th>성별</th>
+          <td>
+            <input type="radio" value="gender">남자
+            <input type="radio" value="gender">여자
+          </td>
+        </tr>
+
+        <tr>
+          <th>상의 사이즈</th>
+          <td>
+            <input type="checkbox"><span>90~95</span>
+            <input type="checkbox"><span>100~105</span>
+            <input type="checkbox"><span>110~115</span>
+            <input type="checkbox"><span>120~125</span>
+            <input type="checkbox"><span>130~</span>
+          </td>
+        </tr>
+        
+        <tr>
+          <th>하의 사이즈</th>
+          <td>
+            <input type="checkbox"><span>~30</span>
+            <input type="checkbox"><span>32</span>
+            <input type="checkbox"><span>33</span>
+            <input type="checkbox"><span>34</span>
+            <input type="checkbox"><span>35</span>
+            <input type="checkbox"><span>36</span>
+            <input type="checkbox"><span>37</span>
+            <input type="checkbox"><span>38</span>
+            <input type="checkbox"><span>39</span>
+            <input type="checkbox"><span>40</span>
+            <input type="checkbox"><span>42~</span>
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+
+  </div>
+    
+</body>
+</html>

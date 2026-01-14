@@ -1,0 +1,36 @@
+.container{
+  background-color: black;
+  height: 70px;
+  display: flex;
+}
+
+.left-side{
+  width: 30%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.left-side > input{
+  width: 150px;
+  margin-left: 5px;
+}
+
+.right-side{
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.right-side > input{
+  border: none;
+  background-color: black;
+  color: white;
+  width: 70px;
+}
+
+.right-side > input:hover{
+  background-color: gray;
+}
