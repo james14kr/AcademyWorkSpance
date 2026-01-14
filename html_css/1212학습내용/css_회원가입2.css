@@ -1,0 +1,91 @@
+body{
+  background-color: lightcyan;
+}
+
+.container{
+  background-color: white;
+  width: 400px;
+  margin: 30px auto;
+  padding: 40px;
+  font-size: 14px;
+}
+
+.tatile-div{
+  margin-bottom: 30px;
+}
+
+.tatile-div > p{
+  font-size: 0.7rem;
+  margin-top: 8px;
+}
+
+.id-div{
+  display: flex;
+  gap: 10px;
+}
+
+.id-div > input{
+  width: 70%;
+}
+
+.id-div > button{
+  width: 30%;
+}
+
+input, select{
+  padding: 6px 4px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  width: 100%;
+}
+
+/* input 태그는 클릭하면 border가 바뀌는게 아니라 outline이 생김 */
+/* outline은 주변 요소에 영향을 주지 않음 */
+input:focus, select:focus{
+  /* border: 3px solid red; */
+  outline: 1px solid gray;
+}
+
+.form-div p {
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+
+.form-div > div{
+  margin-bottom: 12px;
+}
+
+.addr-div{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.birthday-div{
+  display: flex;
+  gap: 25px;
+}
+
+.btn-div{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn{
+  border: none;
+  color: white;
+  font:0.7rem;
+  padding: 7px 18px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px 2px lightgray;
+}
+
+.btn-blue{
+  background-color: lightskyblue;
+}
+
+.btn-yellow{
+  background-color: yellow;
+}

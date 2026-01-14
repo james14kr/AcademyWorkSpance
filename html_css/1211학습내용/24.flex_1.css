@@ -1,0 +1,32 @@
+.container1{
+  border: 1px solid black;
+  display: flex;
+  width: 300px;
+  height: 100px;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.container1 > .item{
+  border: 1px solid red;
+  width: 100%;
+}
+
+.container2{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container2 > .item{
+  border: 1px solid red;
+}
+
+.container2 > .item:nth-child(2){
+  align-self: flex-end;
+}

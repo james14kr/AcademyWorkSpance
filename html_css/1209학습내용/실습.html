@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .container{
+      width: 700px;
+      margin: auto;
+    }
+    .btn-div{
+      text-align: center;
+      margin-top: 20px;
+    }
+    table{
+      border: 1px solid black;
+      border-collapse: collapse; /*테이블 테두리 한 줄만 나타내기(병함)*/
+      width: 100%;
+    }
+    td, tr{
+      border: 1px solid black;
+    }
+
+    .title-td{
+      text-align: center;
+      background-color: rgb(209, 242, 255);
+    }
+
+    .red{
+      font-style: italic;
+      color: red;
+    }
+
+    .id-td, .pw-td, .num-td{
+      width: 20%;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h3>1번 실습</h3>
+
+  <table>
+    <tr>
+      <td>이름</td>
+      <td><blockquote></blockquote></td>
+      <td>
+        <input type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>이메일</td>
+      <td><blockquote></blockquote></td>
+      <td>
+        <input type="email">
+      </td>
+    </tr>
+    <tr>
+      <td>비밀번호</td>
+      <td><blockquote></blockquote></td>
+      <td>
+        <input type="password">
+      </td>
+    </tr>
+    <tr>
+      <td>학과</td>
+      <td><blockquote></blockquote></td>
+      <td>
+        <select>
+          <option>학과를 선택하세요</option>
+          <option>전공1</option>
+          <option>전공2</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>성별</td>
+      <td><blockquote></blockquote></td>
+      <td>
+        <input type="radio" name="sex" checked>남자 <input type="radio" name="sex"> 여자 
+      </td>
+    </tr>
+    <tr>
+      <td>관심사</td>
+      <td><blockquote></blockquote></td>
+      <td><input type="checkbox">여행 <input type="checkbox">게임 <input type="checkbox">공연 <input type="checkbox">운동 <input type="checkbox">기타</td>
+    </tr>
+
+  </table>
+
+  <br>
+  <br>
+  <br>
+
+  <h3>2번 실습</h3>
+
+  <!-- <h3>Sign Up</h3> -->
+
+  <table>
+
+    <thead>
+      <tr>
+        <td colspan="2"> <h2>Sign up</h2></td>
+      </tr>
+      <!-- <tr>
+        <td colspan="2"><h5>Become a member of Andrew's Company, and enjoy a variety of benefits.</h5></td>
+      </tr> -->
+    </thead>
+
+    <tbody>
+      <tr>
+        <td colspan="2">Become a member of Andrew's Company, and enjoy a variety of benefits.</td>
+      </tr>
+      <tr>
+        <td style="width: 250px;">Name</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td>ID</td>
+        <td><input type="text">
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input type="password">
+      </tr>
+      <tr>
+        <td>Confirm Password</td>
+        <td><input type="password">
+      </tr>
+      <tr>
+        <td>Mobile</td>
+        <td>
+          <select name="number">
+            <option>010</option>
+            <option>051</option>
+            <option>052</option>
+          </select>
+          <input type="number" style="width: 55px;">-<input type="number" style="width: 55px;">
+        </td>
+      </tr>
+      <tr>
+        <td>E-mail</td>
+        <td>
+          <input type="email" style="width: 150px;">@<input type="te" style="width: 150px;">
+          <select name="address">
+            <option>Direct input</option>
+            <option>naver.com</option>
+            <option>gmail.net</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Whether to receive email</td>
+        <td><input type="checkbox">Acceptance</td>
+      </tr>
+
+      <tr>
+        <td>Interest</td>
+        <td><input type="checkbox">Movie <input type="checkbox">Theater <input type="checkbox">Travel <input type="checkbox">Mountain climbing <input type="checkbox">Visiting a restaurant <input type="checkbox">Volunteer <input type="checkbox">Etc</td>
+      </tr>
+
+      <tr>
+        <td>Gender</td>
+        <td><input type="radio" name="gender">Male <input type="radio" name="gender">Female </td>
+      </tr>
+
+      <tr>
+        <td>Path learned</td>
+        <td>
+          <select style="width: 200px;">
+            <option>Choose</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2"><textarea rows="5
+          " cols="90"></textarea></td>
+      </tr>
+      
+      <tr>
+        <td><input type="button" value="Sign up"> <input type="button" value="Cancle"></td>
+      </tr>
+
+    </tbody>
+  </table>
+  
+  <br>
+  <br>
+
+  <h3>데이블 예제 실습</h3>
+
+  <!-- 전체 영역 -->
+  <div class="container">
+
+    <!-- 테이블 영역 -->
+    <div class="table-div">
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2" class="title-td">
+              <span><span class="red">(*필수입력)</span>회원 기본 정보</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="id-td">
+              <span><span class="red">*</span> 아이디:</span>
+            </td>
+            <td>
+              <div><input type="text" placeholder="4~12글자의 영문 대소문자, 숫자만 입력하세요"><button type="button">아이디 검사</button></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="pw-td">
+              <span><span class="red">*</span> 비밀번호 : </span>
+            </td>
+            <td>
+              <div>
+                <input type="text">
+                <span>4~12글자의 영문 대소문자, 숫자만 입력하세요</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="id-td">
+              <span><span class="red">*</span> 비밀번호확인:</span>
+            </td>
+            <td>
+              <div><input type="text"><button type="button">비밀번호 확인</button></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="id-td">
+              <span><span class="red">*</span> 메일주소:</span>
+            </td>
+            <td>
+              <div><input type="email"><button type="button">메일 확인</button><span> 예)id@domain.com</span></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="id-td">
+              <span><span class="red">*</span> 이름:</span>
+            </td>
+            <td>
+              <div><input type="email"></div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="title-td">
+              <span>개인 신상 정보</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="num-td">
+              <span><span class="red">*</span> 주민등록번호:</span>
+            </td>
+            <td>
+              <div><input type="email"></div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 버튼 영역 -->
+    <div class="btn-div">
+      <input type="button" value="회원 가입">
+      <input type="button" value="다시 입력">
+    </div>
+
+  </div>
+  
+</body>
+</html>

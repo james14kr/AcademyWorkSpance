@@ -1,0 +1,53 @@
+body{
+  background-color: #caf4ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  color: gray;
+}
+
+.container{
+  width: 400px;
+  margin-top: 50px;
+}
+
+.list-form{
+  width: 100%;
+  height: 90px;
+  background-color: white;
+  display: flex;
+  gap: 5px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 10px 5px;
+  display: flex;
+}
+
+.list-form:hover{
+  scale: 1.2;
+}
+
+.img-div{
+  /* border: 1px solid lightgray; */
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img{
+  width: 90%;
+  height: 90%;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+}
+
+.text-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.2rem;
+}

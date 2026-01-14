@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    .container{
+      width: 700px;
+      margin: auto;
+    }
+    
+    .title-div{
+      text-align: center;
+      font-weight: bolder;
+      font-size: 50px;
+    }
+
+    .explanation{
+      width: 200px;
+      ;
+    }
+
+    .explanation{
+      width: auto;
+      text-align: right;
+    }
+
+    .table1-text{
+      color: red;
+    }
+
+    .table1{
+      border: solid 1px black;
+      margin: auto;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td, tr{
+      border: 1px solid black;
+      margin: auto;
+      text-align: center;
+    }
+
+    .btn-div{
+      margin-top: 20px;
+      text-align: right;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="first-table">
+
+      <div class="title-div">
+        <span>학생 성적표</span>
+      </div>
+
+      <div class="explanation">
+        <span>2024학년도 시험 성적</span>
+      </div>
+
+      <div>
+        <table class="table1">
+          <thead>
+            <tr>
+              <td><span>No</span></td>
+              <td><spaen>이름</spaen></td>
+              <td><span>학년</span></td>
+              <td><span>총점</span></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span>1</span></td>
+              <td><span>홍길동</span></td>
+              <td><span>4학년</span></td>
+              <td><span>270</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <span class="table1-text">*성적표에 석차는 표기되지 않습니다.</span>
+      </div>
+
+    </div>
+
+    <div class="second-table">
+
+      <div class="title-div">
+        <span>상세정보</span>
+      </div>
+
+      <div>
+        <table class="table1">
+          <thead>
+            <tr>
+              <td><span>국어점수</span></td>
+              <td><spaen>영어점수</spaen></td>
+              <td><span>수학점수</span></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span>90</span></td>
+              <td><span>85</span></td>
+              <td><span>95</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="btn-div">
+        <input type="button" value="확인"> <input type="button" value="수정">
+      </div>
+
+    </div>
+
+  </div>
+  
+</body>
+</html>

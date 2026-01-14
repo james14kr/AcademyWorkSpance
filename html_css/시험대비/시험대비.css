@@ -1,0 +1,48 @@
+.container{
+  /* border: 1px solid red; */
+  width: 1500px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.signup-page{
+  /* border: 1px solid black; */
+  width: auto;
+  margin: auto;
+}
+
+table{
+  /* border: 1px solid black; */
+  width: 100%;
+}
+
+table > thead td{
+  border-bottom: 3px solid lightgray;
+  height: 50px;
+}
+
+table > tbody td:nth-child(1){
+  width: 13%;
+  background-color: rgb(231, 230, 230);
+}
+
+table > tbody td{
+  border: 1px solid lightgray;
+  padding: 10px 20px;
+}
+
+.information{
+  margin-top: 50px;
+}
+
+input{
+  border: 1px solid lightgray;
+}
+
+.red{
+  color: red;
+}
+
+.right-text{
+  text-align: right;
+}

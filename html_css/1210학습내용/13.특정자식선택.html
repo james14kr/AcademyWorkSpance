@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* ul 태그 자식 li 중에서 2번째 자식만 선택 */
+    /* odd : 홀수 / even : 짝수 */
+    .ul > li:nth-child(odd){
+      background-color: brown;
+    }
+    .ul > li:nth-child(even){
+      color: blue;
+    }
+
+    .div > p:first-child{
+      font-size: 20px;
+    }
+    .div > p:last-child{
+      font-weight: bold;
+    }
+
+  </style>
+
+</head>
+<body>
+  <h2>특정 자식만 선택하기</h2>
+
+  <ul class="ul">
+    <li>메뉴1</li>
+    <li>메뉴2</li>
+    <li>메뉴3</li>
+    <li>메뉴4</li>
+    <li>메뉴5</li>
+  </ul>
+
+  <hr>
+
+  <div class="div">
+    <p>첫 번째 p</p>
+    <p>두 번째 p</p>
+    <p>세 번째 p</p>
+  </div>
+
+</body>
+</html>

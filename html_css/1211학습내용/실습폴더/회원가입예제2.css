@@ -1,0 +1,57 @@
+body{
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.container{
+  background-color: white;
+  width: 300px;
+  margin: 40px 0px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px 3px #666666;
+  padding: 40px 20px 8px 20px;
+}
+
+/* 속성 선택자 */
+/* type이 text인 input 태그만 선택 */
+input[type="text"],input[type="password"]{
+  width: 100%;
+  padding: 8px 4px;
+  border: 1px solid lightgray;
+}
+
+.form > div{
+  margin-bottom: 12px;
+}
+
+.info{
+  font-size: 0.7rem;
+}
+
+.chk-div{
+  display: flex;
+  align-items: center;
+}
+
+button{
+  background-color: #25c1ff;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.link{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+
+a{
+  text-decoration: none;
+  color: #25c1ff;
+}

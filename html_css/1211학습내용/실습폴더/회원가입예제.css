@@ -1,0 +1,105 @@
+.container{
+  background-image: url(house.jpg);
+  width: 500px;
+  height: 700px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.main{
+  /* border: 1px solid black; */
+  background-color: white;
+  width: 350px;
+  height: 600px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-table{
+  /* border: 1px solid black; */
+  width: 80%;
+  height: 100%;
+}
+
+.title{
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.5rem;
+  height: 150px;
+  font-weight: bolder;
+}
+
+.hr{
+  /* border: 1px solid black; */
+  height: 30px;
+}
+
+.input-div{
+  /* border: 1px solid black; */
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70;
+}
+
+.input-div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input-div input {
+  background-color: white;
+  height: 40px;
+  border: 2px solid lightgrey;
+  font-size: 0.9rem;
+}
+
+.check-box{
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 1px solid black */
+}
+
+
+.check-box > div:last-child {
+  /* border: 1px solid black; */
+  font-size: 0.8rem;
+}
+
+.button{
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+}
+
+.button input{
+  width: 280px;
+  height: 50px;
+  background-color: rgb(37, 193, 255);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+}
+
+.last-area{
+  display: flex;
+  justify-content: center;
+}
+
+.last-area div{
+  font-size: 0.8rem;
+  color: blue;
+}
