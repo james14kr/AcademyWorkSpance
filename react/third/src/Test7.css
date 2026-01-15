@@ -1,0 +1,21 @@
+.Test7_container{
+  width: 500px;
+}
+
+.Test7_container > div{
+  width: auto;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.onMouseBox{
+  background-color: #f08080;
+}
+
+.showBox{
+  background-color: #87cefa;
+}
