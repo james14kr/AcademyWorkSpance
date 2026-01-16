@@ -1,0 +1,215 @@
+/* .container{
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  margin: 0px auto;
+}
+
+.container > div{
+  margin-bottom: 10px;
+}
+
+.education_div:last-child{
+  width: auto;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 20px;
+}
+
+.supportCat{
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: center;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 
+  repeat(3, 1fr);
+  gap: 2px;
+}
+
+.itemTitle {
+  width: auto;
+    height: 20px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  background-color: #4472c4;
+  color: white;
+
+}
+
+.item {
+  width: auto;
+  height: 20px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  background-color: #cfd5ea;
+}
+
+.item input,
+.item select,
+.item textarea{
+  width: 100%;
+  height: 20px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  resize: none;
+} */
+
+/* ===== 전체 레이아웃 ===== */
+.container {
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: #222;
+}
+
+/* ===== 공통 폼 줄 ===== */
+.form-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+  align-items: center;
+}
+
+.form-row.vertical {
+  grid-template-columns: 1fr;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-field {
+  display: flex;
+  gap: 10px;
+}
+
+/* ===== 학력 ===== */
+.education-field {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 10px;
+}
+
+/* ===== 라디오 버튼 ===== */
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #333;
+}
+
+.radio-group input[type="radio"] {
+  transform: scale(0.85);
+  accent-color: #4f73ff;
+}
+
+/* ===== 섹션 ===== */
+.section {
+  margin-top: 24px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #2f4fff;
+}
+
+/* ===== 테이블 ===== */
+.grid-table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.grid-header {
+  padding: 10px 8px;
+  background-color: #4f73ff;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 6px 6px 0 0;
+}
+
+.grid-cell {
+  padding: 8px;
+  background-color: #f3f5ff;
+  border-radius: 0 0 6px 6px;
+}
+
+.period-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+/* ===== input / select / textarea ===== */
+input,
+select,
+textarea {
+  width: 100%;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #d0d4ff;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4f73ff;
+  box-shadow: 0 0 0 2px rgba(79, 115, 255, 0.15);
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .education-field {
+    grid-template-columns: 1fr;
+  }
+}
