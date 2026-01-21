@@ -43,6 +43,8 @@ public class EmpController {
   //사원 등록
   @PostMapping("")
   public void regEmp(@RequestBody EmpDTO empDTO){
+    System.out.println("사원 등록");
+    System.out.println(empDTO);
     empDTOS.add(empDTO);
   }
 

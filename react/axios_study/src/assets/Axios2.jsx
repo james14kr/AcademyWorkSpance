@@ -15,7 +15,7 @@ const Axios2 = () => {
 
   return (
     <div>
-      사원 이름 : {data.empNo}
+      사원 이름 : {data.empName}
     </div>
   )
 }
