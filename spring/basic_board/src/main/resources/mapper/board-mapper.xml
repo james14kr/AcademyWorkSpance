@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.basic_board.mapper.BoardMapper">
+
+	<resultMap id="board" type="com.green.basic_board.dto.BoardDTO">
+		<result column="BOARD_NUM" property="boardNum"/>
+		<result column="TITLE" property="title"/>
+		<result column="WRITER" property="writer"/>
+		<result column="CONTENT" property="content"/>
+		<result column="READ_CNT" property="readCnt"/>
+		<result column="CREATE_DATE" property="createDate"/>
+	</resultMap>
+
+	<select id="test4" parameterType="com.green.basic_board.dto.BoardDTO" resultMap="board">
+		SELECT BOARD_NUM
+			,TITLE
+			,WRITER
+			,CREATE_DATE
+		FROM BASIC_BOARD
+		WHERE BOARD_NUM &gt; #{boardNum}
+		AND READ_CNT &lt; #{readCnt}
+	</select>
+
+<!--&lt;!&ndash;	게시글 목록을 조회 쿼리&ndash;&gt;-->
+<!--	<select id="selectBoardList" resultMap="board">-->
+<!--		SELECT BOARD_NUM-->
+<!--			,TITLE-->
+<!--			,WRITER-->
+<!--			,READ_CNT-->
+<!--			,CREATE_DATE-->
+<!--		FROM BASIC_BOARD-->
+<!--		WHERE BOARD_NUM = #{boardNum}-->
+<!--	</select>-->
+
+<!--	&lt;!&ndash;개시글 하나만 조회&ndash;&gt;-->
+<!--	<select id="selectBoard">-->
+<!--		SELECT-->
+<!--			BOARD_NUM-->
+<!--			,TITLE-->
+<!--			,WRITER-->
+<!--			,CONTENT-->
+<!--			,READ_CNT-->
+<!--			,CREATE_DATE-->
+<!--		FROM-->
+<!--			BASIC_BOARD-->
+<!--		WHERE-->
+<!--			BOARD_NUM = 1-->
+<!--	</select>-->
+
+<!--	&lt;!&ndash;게시글 등록&ndash;&gt;-->
+<!--	<insert id="insertBoard">-->
+<!--		INSERT INTO BASIC_BOARD (-->
+<!--			TITLE-->
+<!--			,WRITER-->
+<!--			,CONTENT-->
+<!--		)VALUES(-->
+<!--			'새로운 글'-->
+<!--			,'테스터'-->
+<!--			,'테스트 내용'-->
+<!--		)-->
+<!--	</insert>-->
+
+<!--	&lt;!&ndash;게시글 삭제&ndash;&gt;-->
+<!--	<delete id="deleteBoard">-->
+<!--		DELETE FROM BASIC_BOARD-->
+<!--		WHERE BOARD_NUM = 1-->
+<!--	</delete>-->
+
+<!--	&lt;!&ndash;게시글 수정&ndash;&gt;-->
+<!--	<update id="updateBoard">-->
+<!--		UPDATE BASIC_BOARD-->
+<!--		SET-->
+<!--			TITLE = '변경된 제목'-->
+<!--			,CONTENT = '변경된 내용'-->
+<!--			,READ_CNT = 5-->
+<!--		WHERE BOARD_NUM = 2-->
+<!--	</update>-->
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
