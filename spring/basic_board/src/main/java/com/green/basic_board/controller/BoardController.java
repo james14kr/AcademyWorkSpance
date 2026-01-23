@@ -3,8 +3,7 @@ package com.green.basic_board.controller;
 import com.green.basic_board.dto.BoardDTO;
 import com.green.basic_board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +26,21 @@ public class BoardController {
     return result;
   }
 
+  @PostMapping("/test5")
+  public void regBoard(@RequestBody BoardDTO boardDTO){
+    boardService.regBoard(boardDTO);
+  }
+
+  @DeleteMapping("/test6/{boardNum}")
+  public int delBoard(@PathVariable("boardNum") int boardNum){
+    int result = boardService.delBoard(boardNum);
+    return result;
+  }
+
+  @PutMapping("test7/{boardNum}")
+  public int updateBoard(@PathVariable("boardNum") int boardNum, @RequestBody BoardDTO boardDTO){
+    int result = boardService.updateBoard(boardDTO);
+    return result;
+  }
 
 }

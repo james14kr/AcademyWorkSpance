@@ -1,0 +1,20 @@
+.container{
+  width: 500px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.row{
+  display: flex;
+  align-items: center;
+}
+
+.row > div{
+  width: 80px;
+}
+
+.row input, textarea{
+  width: auto;
+}
