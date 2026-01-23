@@ -22,4 +22,18 @@ public class BoardService {
     return boardMapper.test4(boardDTO);
   }
 
+  public void regBoard(BoardDTO boardDTO){
+    boardMapper.insertBoard(boardDTO);
+  }
+
+  public int delBoard(int boardNum){
+    int result = boardMapper.deleteBoard(boardNum);
+    return result;
+  }
+
+  public int updateBoard(BoardDTO boardDTO){
+    int result = boardMapper.updateBoard(boardDTO);
+    return result;
+  }
+
 }

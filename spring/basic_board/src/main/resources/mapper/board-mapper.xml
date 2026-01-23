@@ -50,6 +50,18 @@
 <!--			BOARD_NUM = 1-->
 <!--	</select>-->
 
+	<insert id="insertBoard">
+		INSERT INTO BASIC_BOARD(
+			TITLE
+			,WRITER
+			,CONTENT
+		)VALUES(
+			#{title}
+			,#{writer}
+			,#{content}
+		)
+	</insert>
+
 <!--	&lt;!&ndash;게시글 등록&ndash;&gt;-->
 <!--	<insert id="insertBoard">-->
 <!--		INSERT INTO BASIC_BOARD (-->
@@ -69,6 +81,11 @@
 <!--		WHERE BOARD_NUM = 1-->
 <!--	</delete>-->
 
+	<delete id="deleteBoard">
+		DELETE FROM BASIC_BOARD
+		WHERE BOARD_NUM = #{boardNum}
+	</delete>
+
 <!--	&lt;!&ndash;게시글 수정&ndash;&gt;-->
 <!--	<update id="updateBoard">-->
 <!--		UPDATE BASIC_BOARD-->
@@ -79,35 +96,12 @@
 <!--		WHERE BOARD_NUM = 2-->
 <!--	</update>-->
 
+	<update id="updateBoard">
+		UPDATE BASIC_BOARD
+		SET
+			TITLE = #{title}
+			,WRITER = #{writer}
+		WHERE BOARD_NUM = #{boardNum}
+	</update>
+
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
