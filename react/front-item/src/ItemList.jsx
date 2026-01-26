@@ -10,7 +10,7 @@ const ItemList = () => {
   }, []);
 
   const getItemList = () => {
-    axios.get("http://localhost:8080/item")
+    axios.post("http://localhost:8080/item")
       .then(response => {
         setList(response.data);
       })
