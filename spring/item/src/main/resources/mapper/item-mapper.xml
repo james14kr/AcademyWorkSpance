@@ -3,12 +3,12 @@
 
 <mapper namespace="com.green.item.mapper.ItemMapper">
 
-    <resultMap id="" type="com.green.item.dto.itemDTO">
+    <resultMap id="item" type="com.green.item.dto.ItemDTO">
         <id column="ITEM_NUM" property="itemNum"/>
-        <id column="ITEM_NAME" property="itemName"/>
-        <id column="ITEM_PRICE" property="ItemPrice"/>
-        <id column="REG-DATE" property="regDate"/>
-        <id column="ITEM_INTRO" property="itemIntro"/>
+        <result column="ITEM_NAME" property="itemName"/>
+        <result column="ITEM_PRICE" property="itemPrice"/>
+        <result column="REG_DATE" property="regDate"/>
+        <result column="ITEM_INTRO" property="itemIntro"/>
     </resultMap>
     
     <insert id="insertItem">
@@ -23,7 +23,7 @@
         )
     </insert>
 
-    <select id="selectItemList" resultMap="item">
+    <select id="selectItemList" parameterType="com.green.item.dto.ItemDTO" resultMap="item">
         SELECT ITEM_NUM
             ,ITEM_NAME
             ,ITEM_PRICE
@@ -31,6 +31,14 @@
         FROM ITEM
         ORDER BY REG_DATE DESC
     </select>
+
+    <update id="updateItem">
+        UPDATE ITEM
+        SET
+            ITEM_NAME = #{itemName}
+            ,ITEM_PRICE = #{itemPrice}
+        WHERE ITEM_NUM = #{itemNum}
+    </update>
 
 </mapper>
 
