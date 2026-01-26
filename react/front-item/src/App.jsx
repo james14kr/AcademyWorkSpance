@@ -1,5 +1,8 @@
-import ItemForm from "./assets/ItemForm"
+import Child from "./Child"
+import ItemForm from "./ItemForm"
 import ItemList from "./ItemList"
+import Parent from "./Parent"
+import Test6 from "./Test6"
 import UpdateFrom from "./UpdateFrom"
 
 function App() {
@@ -8,7 +11,10 @@ function App() {
     <>
       {/* <ItemForm/> */}
       {/* <ItemList/> */}
-      <UpdateFrom/>
+      {/* <UpdateFrom/> */}
+      {/* <Parent/> */}
+      <Test6/>
+      
     </>
   )
 }

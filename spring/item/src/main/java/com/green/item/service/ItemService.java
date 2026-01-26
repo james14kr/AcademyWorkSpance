@@ -31,4 +31,9 @@ public class ItemService {
     List<ItemDTO> list = itemMapper.selectItemList();
     return list;
   }
+
+  public void updateItem(ItemDTO itemDTO){
+    itemMapper.updateItem(itemDTO);
+  }
+
 }

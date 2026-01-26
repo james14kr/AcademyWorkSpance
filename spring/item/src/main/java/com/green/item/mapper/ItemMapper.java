@@ -11,4 +11,6 @@ public interface ItemMapper {
   int insertItem(ItemDTO itemDTO);
 
   List<ItemDTO> selectItemList();
+
+  void updateItem(ItemDTO itemDTO);
 }

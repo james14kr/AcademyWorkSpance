@@ -10,9 +10,10 @@ const ItemList = () => {
   }, []);
 
   const getItemList = () => {
-    axios.post("http://localhost:8080/item")
+    axios.get("http://localhost:8080/item")
       .then(response => {
-        setList(response.data);
+        console.log(response.data)
+        setList(response.data)
       })
       .catch(e => console.log(e));
   };
@@ -38,7 +39,7 @@ const ItemList = () => {
                 <td>{item.itemNum}</td>
                 <td>{item.itemName}</td>
                 <td>{item.itemPrice}</td>
-                <td>{item.createDate}</td>
+                <td>{item.regDate}</td>
               </tr>
             ))
           }

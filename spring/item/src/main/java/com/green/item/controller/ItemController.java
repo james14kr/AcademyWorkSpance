@@ -22,9 +22,15 @@ public class ItemController {
     itemService.regItem(itemDTO);
   }
 
-  @PostMapping("")
+  @GetMapping("")
   public List<ItemDTO> getItemList(){
     List<ItemDTO> list = itemService.getItemList();
     return list;
   }
+
+  @PutMapping("/{itemNum}")
+  public void updateItem(@PathVariable("itemNum") int itemNum, @RequestBody ItemDTO itemDTO){
+    itemService.updateItem(itemDTO);
+  }
+
 }
