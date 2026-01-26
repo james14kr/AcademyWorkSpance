@@ -1,73 +1,71 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './ItemForm.css';
+import axios from "axios";
+import React, { useState } from "react";
 
 const ItemForm = () => {
 
-  const [data, setData] = useState({
+  const [item, setItem] = useState({
     itemName: "",
     itemPrice: "",
-    itemDescription: ""
+    itemIntro: ""
   });
 
-  const changeData = (e) => {
-    const { name, value } = e.target;
-
-    setData({
-      ...data,
-      [name]: value
+  const handleItemData = (e) => {
+    setItem({
+      ...item,
+      [e.target.name]: e.target.value
     });
-  };
+  }
 
-  const insertItem = () => {
-    axios.post("http://localhost:8080/item", data)
+  console.log(item);
+
+  const regItem = () => {
+    axios.post("http://localhost:8080/item", item)
       .then(response => {
         alert("등록 성공");
-        setData({
-          itemName: "",
-          itemPrice: "",
-          itemDescription: ""
-        });
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
+        alert("등록 실패");
       });
   };
 
   return (
-    <div className="container">
+    <div>
       <h2>상품 등록</h2>
 
-      <div className="row">
-        <div>상품명</div>
+      <div>
+        상품명 : 
         <input 
           type="text" 
-          name="itemName" 
-          value={data.itemName} 
-          onChange={changeData} 
+          name="itemName"
+          value={item.itemName}
+          onChange={e => handleItemData(e)}
         />
       </div>
 
-      <div className="row">
-        <div>가격</div>
+      <div>
+        가격 : 
         <input 
-          type="text" 
-          name="itemPrice" 
-          value={data.itemPrice} 
-          onChange={changeData} 
+          type="number" 
+          name="itemPrice"
+          value={item.itemPrice}
+          onChange={e => handleItemData(e)}
         />
       </div>
 
-      <div className="row">
-        <div>상품소개</div>
+      <div>
+        상품소개
         <textarea 
-          name="itemDescription" 
-          value={data.itemDescription} 
-          onChange={changeData}
-        />
+          cols={50}
+          rows={5}
+          name="itemIntro"
+          value={item.itemIntro}
+          onChange={e => handleItemData(e)}>
+
+          </textarea>
       </div>
 
-      <button onClick={insertItem}>등록</button>
+      <button type="button" onClick={e => regItem(e)}>등록</button>
     </div>
   );
 };

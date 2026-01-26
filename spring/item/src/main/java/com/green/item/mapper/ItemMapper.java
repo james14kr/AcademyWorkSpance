@@ -1,15 +1,14 @@
 package com.green.item.mapper;
 
-import com.green.item.dto.ItemDTO;
 import org.apache.ibatis.annotations.Mapper;
+import com.green.item.dto.ItemDTO;
 
 import java.util.List;
 
 @Mapper
 public interface ItemMapper {
 
-  void insertItem(ItemDTO itemDTO);
+  int insertItem(ItemDTO itemDTO);
 
-  List<ItemDTO> getItemList( );
-
+  List<ItemDTO> selectItemList();
 }
