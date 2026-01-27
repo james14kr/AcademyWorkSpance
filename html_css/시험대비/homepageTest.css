@@ -1,0 +1,31 @@
+.container{
+  width: 100%;
+}
+
+.menuSection{
+  height: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+
+.btnMenu{
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.inputMenu{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 200px;
+}
+
+.btnMenu button{
+  background-color: white;
+  border: none;
+  height: 100%;
+  width: 100px;
+  font-size: 0.8rem
+}
