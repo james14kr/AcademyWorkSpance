@@ -3,7 +3,25 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
-<mapper namespace="mapper">
+<mapper namespace="com.green.board.mapper.BoardMapper">
+
+    <resultMap id="list" type="com.green.board.dto.BoardDTO">
+        <id column="BOARD_NUM" property="boardNum"/>
+        <result column="TITLE" property="title"/>
+        <result column="WRITER" property="writer"/>
+        <result column="CREATE_DATE" property="createDate"/>
+        <result column="READ_CNT" property="readCnt"/>
+    </resultMap>
+
+    <select id="selectBoardList" parameterType="com.green.board.dto.BoardDTO" resultMap="list">
+        SELECT BOARD_NUM
+            ,TITLE
+            ,WRITER
+            ,CREATE_DATE
+            ,READ_CNT
+        FROM BASIC_BOARD
+        ORDER BY CREATE_DATE DESC
+    </select>
 	
 </mapper>
 
