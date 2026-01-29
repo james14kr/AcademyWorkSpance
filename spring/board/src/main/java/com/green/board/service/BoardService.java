@@ -16,9 +16,19 @@ public class BoardService {
   public BoardService(BoardMapper boardMapper){
     this.boardMapper = boardMapper;
   }
-  public List<BoardDTO> selectBoardList(){
+
+  public List<BoardDTO> getList(){
     List<BoardDTO> list = boardMapper.selectBoardList();
     return list;
+  }
+
+  public int regBoard(BoardDTO boardDTO){
+    int insertedRowCnt = boardMapper.insertBoard(boardDTO);
+    return insertedRowCnt;
+  }
+
+  public BoardDTO getDetailList(int boardNum){
+    return boardMapper.selectDetailBoardList(boardNum);
   }
 
 

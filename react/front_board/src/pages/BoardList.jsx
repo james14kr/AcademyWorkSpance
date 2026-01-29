@@ -1,22 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './BoardList.module.css'
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const BoardList = () => {
 
-  const[list, setList] = useState();
+  const[list, setList] = useState([]);
+
+  const nav = useNavigate();
 
   useEffect(() => {
     getList();
   }, []);
 
   const getList = (e => {
-    axios.get('https://localhost:8080/boards')
+    axios.get('http://localhost:8080/boards')
     .then(response => {
-      console.log(data)
+      console.log(response.data)
       setList(response.data)
     })
-    .catch(e => console.log)
+    .catch(e => console.log(e))
   })
 
   return (
@@ -51,13 +54,16 @@ const BoardList = () => {
             </thead>
             <tbody>
               {
-                list.map(list => (
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                list.map((board, i) => (
+                  <tr key={board.boardNum}>
+                    <td>{board.title} </td>
+                    <td>
+                      <span  onClick={e => {nav(`/detail/${board.boardNum}`)}}>
+                        {board.writer}
+                      </span>
+                      </td>
+                    <td>{board.createDate}</td>
+                    <td>{board.readCnt}</td>
                   </tr>
                 ))
               }
@@ -65,7 +71,7 @@ const BoardList = () => {
           </table>
         </div>
         <div className={styles.btn_div}>
-          <button type='button'>글쓰기</button>
+          <button type='button' onClick={e => {nav('/reg')}}>글쓰기</button>
         </div>
       </div>
 

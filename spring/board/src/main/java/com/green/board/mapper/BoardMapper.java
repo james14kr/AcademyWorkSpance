@@ -1,6 +1,7 @@
 package com.green.board.mapper;
 
 import com.green.board.dto.BoardDTO;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,5 +10,9 @@ import java.util.List;
 public interface BoardMapper {
 
   List<BoardDTO> selectBoardList();
+
+  int insertBoard(BoardDTO boardDTO);
+
+  BoardDTO selectDetailBoardList(int boardNum);
 
 }
