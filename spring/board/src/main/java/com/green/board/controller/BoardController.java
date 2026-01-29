@@ -3,10 +3,9 @@ package com.green.board.controller;
 import com.green.board.dto.BoardDTO;
 import com.green.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.lang.invoke.CallSite;
 import java.util.List;
 
 @RestController
@@ -20,9 +19,22 @@ public class BoardController {
   }
 
   @GetMapping("")
-  public List<BoardDTO> selectBoardList(){
-    List<BoardDTO> list = boardService.selectBoardList();
+  public List<BoardDTO> getBoardList(){
+    List<BoardDTO> list = boardService.getList();
     return list;
+  }
+
+  @PostMapping("")
+  public int regBoard(@RequestBody BoardDTO boardDTO){
+    System.out.println(boardDTO);
+    int result = boardService.regBoard(boardDTO);
+    return result;
+  }
+
+  // (GET) localhost:8080/boards/1
+  @GetMapping("/{boardNum}")
+  public BoardDTO getDetailBoardList(@PathVariable("boardNum") int boardNum){
+    return boardService.getDetailList(boardNum);
   }
 
 }

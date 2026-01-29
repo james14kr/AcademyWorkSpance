@@ -22,6 +22,29 @@
         FROM BASIC_BOARD
         ORDER BY CREATE_DATE DESC
     </select>
+
+    <insert id="insertBoard">
+        INSERT INTO BASIC_BOARD(
+            TITLE
+            ,WRITER
+            ,CONTENT
+        ) VALUES(
+            #{title}
+            ,#{writer}
+            ,#{content}
+        )
+    </insert>
+
+    <select id="selectDetailBoardList" resultMap="list">
+        SELECT BOARD_NUM
+            ,CREATE_DATE
+            ,WRITER
+            ,READ_CNT
+            ,TITLE
+            ,CONTENT
+        FROM BASIC_BOARD
+        WHERE BOARD_NUM = #{boardNum}
+    </select>
 	
 </mapper>
 

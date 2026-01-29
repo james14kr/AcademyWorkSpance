@@ -14,5 +14,5 @@ public class BoardDTO {
   private String writer;
   private String content;
   private  int readCnt;
-  private LocalDateTime createDate;
+  private String createDate;
 }
