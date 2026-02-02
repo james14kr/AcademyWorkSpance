@@ -1,11 +1,13 @@
 package com.green.board.controller;
 
 import com.green.board.dto.BoardDTO;
+import com.green.board.dto.SearchDTO;
 import com.green.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.invoke.CallSite;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,8 +21,9 @@ public class BoardController {
   }
 
   @GetMapping("")
-  public List<BoardDTO> getBoardList(){
-    List<BoardDTO> list = boardService.getList();
+  public List<BoardDTO> getBoardList(SearchDTO searchDTO){
+    System.out.println(searchDTO);
+    List<BoardDTO> list = boardService.getList(searchDTO);
     return list;
   }
 

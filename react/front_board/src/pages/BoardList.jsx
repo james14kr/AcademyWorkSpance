@@ -5,34 +5,62 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 const BoardList = () => {
 
+  //조회한 게시글 목록 데이터를 저장할 state변수
   const[list, setList] = useState([]);
+
+  //입력한 검색 내용을 저장할 state변수 
+  const[searchData, setSearchData] = useState({
+    searchKeyword : 'TITLE',
+    searchValue : ''
+  });
+
+  //입력값 저장할 함수
+  const handleSearchData = (e) =>{
+    setSearchData({
+      ...searchData,
+      [e.target.name] : e.target.value
+    })
+  }
 
   const nav = useNavigate();
 
   useEffect(() => {
-    getList();
+    getBoardlist();
   }, []);
 
-  const getList = (e => {
-    axios.get('http://localhost:8080/boards')
+  //검색 버튼 실행 함수
+  const getBoardlist = () => {
+    axios.get('http://localhost:8080/boards', {params : searchData})
     .then(response => {
       console.log(response.data)
       setList(response.data)
     })
     .catch(e => console.log(e))
-  })
+  }
 
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.search_div}>
-          <select>
-            <option>제목</option>
-            <option>작성자</option>
+        <div className={styles.search_div}> 
+          <select
+            value={searchData.searchKeyword}
+            name="searchKeyword"
+            onChange={handleSearchData}
+          >
+            <option value="TITLE">제목</option>
+            <option value="WRITER">작성자</option>
           </select>
-          <input type="text" />
-          <button type='button'>검색</button>
+
+          <input
+            type="text"
+            value={searchData.searchValue}
+            name="searchValue"
+            onChange={handleSearchData}
+          />
+
+          <button type="button" onClick={getBoardlist}>검색</button>
         </div>
+
         <div className={styles.list_div}>
           <table className={styles.list_table}>
             {/* 테이블의 각 컬럼 너비값 지정 */}
@@ -56,12 +84,13 @@ const BoardList = () => {
               {
                 list.map((board, i) => (
                   <tr key={board.boardNum}>
-                    <td>{board.title} </td>
+                    <td>{board.boardNum}</td>
                     <td>
                       <span  onClick={e => {nav(`/detail/${board.boardNum}`)}}>
-                        {board.writer}
+                        {board.title}
                       </span>
-                      </td>
+                    </td>
+                    <td>{board.writer}</td>
                     <td>{board.createDate}</td>
                     <td>{board.readCnt}</td>
                   </tr>

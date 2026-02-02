@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import ReplyInfo from '../components/ReplyInfo';
 
 const BoardDetail = () => {
 
@@ -52,6 +53,11 @@ const BoardDetail = () => {
         <button type="button">수정</button>
         <button type="button">삭제</button>
       </div>
+
+      <div>
+        <ReplyInfo boardNum = {params.boardNum}/>
+      </div>
+
     </div>
   );
 };

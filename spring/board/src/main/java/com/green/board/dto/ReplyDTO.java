@@ -7,12 +7,10 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class BoardDTO {
-
-  private int boardNum;
-  private String title;
+public class ReplyDTO {
+  private int replyNum;
   private String writer;
+  private LocalDateTime regDate;
   private String content;
-  private  int readCnt;
-  private LocalDateTime createDate;
+  private int boardNum;
 }

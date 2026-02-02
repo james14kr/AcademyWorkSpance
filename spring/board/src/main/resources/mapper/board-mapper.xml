@@ -3,6 +3,16 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+
+<!--#{}로 작성된 빈 값은 Mapper Interface에서 선언한 추상메서드의 매개변수로 채워진다-->
+<!--case1. 매개변수로 DTO, 객체되면,
+    #{}안에 작성된 변수의 getter를 호출하여 데이터를 채워 줌
+-->
+<!--case2. 매개변수로 int, String이 전달되면
+    전달되는 매개변수에는 getter가 없기 때문에 getter를 호출하지 않음
+    단순히 정수 데이터 하나, 문자열 데이터 하나만 채워주면 되기 때문에
+    #{} 안에 작성되는 글자는 어떤 글자를 작성하던 상관 없음
+-->
 <mapper namespace="com.green.board.mapper.BoardMapper">
 
     <resultMap id="list" type="com.green.board.dto.BoardDTO">
@@ -20,6 +30,13 @@
             ,CREATE_DATE
             ,READ_CNT
         FROM BASIC_BOARD
+        <!--test 안의 내용이 참일때만 실행-->
+        <!--test 안에 작성한 변수는 매개변수로 전달된 객체의 getter를 호출해서 해석-->
+        <!-- #{} 홀따옴표에 감싸짐, 일반적인 변수에서 사용-->
+        <!-- ${} 홀따옴표가 없음, 컬럼명이 변수일 때    사용-->
+        <if test="!searchValue.equals('')">
+            WHERE UPPER(${searchKeyword})LIKE CONCAT('%', UPPER(#{searchValue}), '%')
+        </if>
         ORDER BY CREATE_DATE DESC
     </select>
 

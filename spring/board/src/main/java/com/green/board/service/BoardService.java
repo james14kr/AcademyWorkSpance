@@ -1,6 +1,7 @@
 package com.green.board.service;
 
 import com.green.board.dto.BoardDTO;
+import com.green.board.dto.SearchDTO;
 import com.green.board.mapper.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ public class BoardService {
     this.boardMapper = boardMapper;
   }
 
-  public List<BoardDTO> getList(){
-    List<BoardDTO> list = boardMapper.selectBoardList();
+  public List<BoardDTO> getList(SearchDTO searchDTO){
+    List<BoardDTO> list = boardMapper.selectBoardList(searchDTO);
     return list;
   }
 
