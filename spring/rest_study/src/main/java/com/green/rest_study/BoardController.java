@@ -100,7 +100,7 @@ public class BoardController {
 
     for(BoardDTO b : boardDTOList){
       if(b.getBoardNum() == boardNum){
-        b.setTitle(boardDTO.getTitle());
+        b.setTitle(boardDTO.getTitl e());
         b.setWriter(boardDTO.getWriter());
       }
     }
