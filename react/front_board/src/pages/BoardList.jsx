@@ -31,11 +31,15 @@ const BoardList = () => {
   //검색 버튼 실행 함수
   const getBoardlist = () => {
     axios.get('http://localhost:8080/boards', {params : searchData})
-    .then(response => {
-      console.log(response.data)
+    .then(response => { //response : 통신 성공에 대한 모든 정보를 담고 있음, 응답에 대한 모든 정보
+      // console.log(response.data)
       setList(response.data)
+      // console.log(response);
     })
-    .catch(e => console.log(e))
+    .catch(e => {
+      console.log("오류발생!!")
+      console.log(e);
+    });
   }
 
   return (
