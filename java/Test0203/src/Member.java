@@ -21,11 +21,18 @@ public class Member {
 
   public boolean isLogin(String id, String pw){
 
-    if(id.equals("java") && pw.equals("1234")){
+//    if(id.equals("java") && pw.equals("1234")){
+//      return true;
+//    }else {
+//      return false;
+//    }
+
+    if(this.id.equals(id) && this.pw.equals(pw)){
       return true;
-    }else {
+    }else{
       return false;
     }
+
   }
 
 }

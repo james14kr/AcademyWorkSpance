@@ -23,9 +23,25 @@
         WHERE BOARD_NUM = #{boardNum}
         ORDER BY REG_DATE DESC
     </select>
-    <!--댓글등록-->
-    <!--댓글삭제-->
 
+    <!--댓글등록-->
+    <insert id="insertReply">
+        INSERT INTO BOARD_REPLY(
+            CONTENT
+            ,WRITER
+            ,BOARD_NUM
+        )VALUES(
+            #{content}
+            ,#{writer}
+            ,#{boardNum}
+        )
+    </insert>
+
+    <!--댓글삭제-->
+    <delete id="deleteReply">
+        DELETE FROM BOARD_REPLY
+        WHERE REPLY_NUM = #{replyNum}
+    </delete>
 </mapper>
 
 

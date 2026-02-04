@@ -12,5 +12,5 @@ public class ReplyDTO {
   private String writer;
   private LocalDateTime regDate;
   private String content;
-  private int boardNum;
+  private int boardNum; 
 }

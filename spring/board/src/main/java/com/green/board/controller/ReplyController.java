@@ -28,4 +28,17 @@ public class ReplyController {
 
   //일반적인 클래스를 리턴 받으면 null
   //list로 리턴 받으면 0
+
+  //댓글 등록 api
+  @PostMapping("")
+  public void regReply(@RequestBody ReplyDTO replyDTO){
+    replyService.regReply(replyDTO);
+  }
+
+  //댓글 삭제 api
+  @DeleteMapping("/{replyNum}")
+  public void deleteReply(@PathVariable("replyNum")int replyNum){
+    replyService.deleteReply(replyNum);
+  }
+
 }
