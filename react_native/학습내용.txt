@@ -1,0 +1,80 @@
+============================
+2026-03-12 React Native 학습 내용
+============================
+
+[ 오늘 만든 프로젝트 ]
+- flat-list/ 폴더: 장바구니 목록 앱 (FlatList 실습)
+
+─────────────────────────────
+1. FlatList 컴포넌트
+─────────────────────────────
+- 배열 데이터를 리스트로 렌더링할 때 사용
+- ScrollView와 차이점: 화면에 보이는 항목만 렌더링 → 대량 데이터에 성능 유리
+
+주요 props:
+  data              : 렌더링할 배열 데이터
+  renderItem        : 각 항목을 어떻게 그릴지 정의 (함수로 전달)
+  keyExtractor      : 각 항목의 고유 key 지정 (문자열 반환)
+  contentContainerStyle : 항목 전체를 감싸는 영역 스타일 (gap 등 설정)
+
+예시:
+  <FlatList
+    data={cartList}
+    renderItem={({item}) => <CartItem item={item}/>}
+    keyExtractor={(item) => item.id}
+    contentContainerStyle={{ gap: 12 }}
+  />
+
+─────────────────────────────
+2. useState로 리스트 상태 관리
+─────────────────────────────
+- const [cartList, setCartList] = useState(dummy_data);
+- 초기값으로 더미 데이터를 넣어 목록 렌더링
+- 나중에 setCartList로 추가/삭제 기능 구현 가능
+
+─────────────────────────────
+3. 컴포넌트 분리 패턴
+─────────────────────────────
+- CartList.jsx : FlatList 전체 목록 담당
+- CartItem.jsx : 개별 항목 하나 담당
+- FlatList의 renderItem에서 CartItem 호출 → item을 props로 전달
+
+─────────────────────────────
+4. SafeAreaView (react-native-safe-area-context)
+─────────────────────────────
+- 노치, 상태바 등 디바이스 안전 영역을 자동으로 피해 렌더링
+- react-native 내장 SafeAreaView보다 정확함
+- import { SafeAreaView } from 'react-native-safe-area-context'
+
+─────────────────────────────
+5. @expo/vector-icons (MaterialIcons)
+─────────────────────────────
+- Expo에서 제공하는 아이콘 라이브러리
+- MaterialIcons, FontAwesome, Ionicons 등 다양한 세트 사용 가능
+- import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+
+사용법:
+  <MaterialIcons name="edit" size={24} color="black" />
+  <MaterialIcons name="delete-forever" size={24} color="black" />
+
+─────────────────────────────
+6. StyleSheet - flexDirection & 레이아웃
+─────────────────────────────
+- flexDirection: 'row'  → 자식 요소를 가로 방향으로 배치
+- justifyContent: 'center' → 가로 축 기준 중앙 정렬
+- marginHorizontal: 'auto' → 수평 중앙 정렬
+- paddingVertical / paddingHorizontal → 위아래 / 좌우 패딩 개별 설정
+- width: '%' 단위로 자식 요소 너비 비율 설정 (title 80%, icon 각 10%)
+
+─────────────────────────────
+[ 파일 구조 ]
+─────────────────────────────
+flat-list/
+├── app/
+│   └── index.js          ← 메인 화면 (SafeAreaView + CartList)
+├── components/
+│   ├── CartList.jsx       ← FlatList로 목록 렌더링
+│   └── CartItem.jsx       ← 개별 항목 (상품명 + 수정/삭제 아이콘)
+└── data/
+    └── dummy.js           ← 테스트용 더미 데이터
+
