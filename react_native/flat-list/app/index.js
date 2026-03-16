@@ -17,27 +17,39 @@ const HomeScreen = () => {
   // cartList: 현재 장바구니 데이터, setCartList: 데이터 변경 함수
   const[cartList, setCartList] = useState(dummy_data);
 
+  // 새 항목을 장바구니에 추가하는 함수
   const addCart = () => {
-    //추가할 id
-   const idList = cartList.map((item, i) => {return item.id})
+    // 기존 항목들의 id만 뽑아서 배열로 만듦
+    const idList = cartList.map((item, i) => {return item.id})
 
-   //추가할 데이터
-   const newData = {
+    // 새 항목 데이터 생성
+    // 장바구니가 비어있으면 id=1, 아니면 현재 최대 id + 1로 중복 없이 생성
+    const newData = {
       id : cartList.length === 0 ? 1 : Math.max(...idList) + 1,
       item : newItem
-   }
+    }
 
-   //추가할 데이터를 cartList에 저장
-   setCartList([...cartList, newData])
+    // 스프레드 연산자(...)로 기존 목록을 복사하고 새 항목을 뒤에 추가
+    setCartList([...cartList, newData])
 
-   setNewItem('')
-
+    // 입력창 초기화
+    setNewItem('')
   }
 
+  // 특정 항목의 텍스트를 수정하는 함수
+  // id: 수정할 항목의 고유 식별자, newText: 변경할 새 텍스트
   const updateCart = (id, newText) => {
-    setCartList(cartList.map(cartItem => 
+    // map으로 전체 배열을 순회하면서 id가 일치하는 항목만 스프레드로 복사 후 item 값 교체
+    // id가 다른 항목은 그대로 유지
+    setCartList(cartList.map(cartItem =>
       cartItem.id === id ? {...cartItem, item : newText} : cartItem
     ))
+  }
+
+  // 특정 항목을 장바구니에서 삭제하는 함수
+  // filter로 전체 배열에서 id가 일치하는 항목만 제외한 새 배열 반환
+  const deleteCart = (id) => {
+    setCartList(cartList.filter(cartItem => cartItem.id !== id))
   }
 
   return (
@@ -56,7 +68,7 @@ const HomeScreen = () => {
           onSubmitEditing={() => {addCart()}}
           placeholder='추가할 품목을 입력하세요'
         />
-        <CartList cartList={cartList} updateCart={updateCart}/>
+        <CartList cartList={cartList} updateCart={updateCart} deleteCart={deleteCart}/>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   )
