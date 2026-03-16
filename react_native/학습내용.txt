@@ -78,3 +78,71 @@ flat-list/
 └── data/
     └── dummy.js           ← 테스트용 더미 데이터
 
+
+============================
+2026-03-16 React Native 학습 내용
+============================
+
+[ 오늘 구현한 기능 ]
+- 항목 수정 기능 (CartItem에서 인라인 편집)
+- 항목 삭제 기능 (filter로 해당 항목 제거)
+
+─────────────────────────────
+1. props 드릴링 패턴 (Prop Drilling)
+─────────────────────────────
+- 상위 컴포넌트의 함수를 하위 컴포넌트에 props로 전달하는 패턴
+- 흐름: index.js → CartList → CartItem → 버튼 onPress에 연결
+
+예시 (deleteCart):
+  index.js    : deleteCart 함수 정의, <CartList deleteCart={deleteCart}/>
+  CartList    : ({deleteCart}) 받아서 <CartItem deleteCart={deleteCart}/>
+  CartItem    : ({deleteCart}) 받아서 <Pressable onPress={() => deleteCart(item.id)}>
+
+─────────────────────────────
+2. 배열 메서드로 state 업데이트
+─────────────────────────────
+- React state는 직접 수정(push, splice 등) 금지 → 항상 새 배열 반환
+
+  추가 (addCart)    : 스프레드 연산자로 새 배열 생성
+    setCartList([...cartList, newData])
+
+  수정 (updateCart) : map으로 순회 → id 일치 항목만 교체, 나머지 유지
+    setCartList(cartList.map(item =>
+      item.id === id ? {...item, item: newText} : item
+    ))
+
+  삭제 (deleteCart) : filter로 해당 id 제외한 새 배열 반환
+    setCartList(cartList.filter(item => item.id !== id))
+
+─────────────────────────────
+3. 인라인 수정 UI (조건부 렌더링)
+─────────────────────────────
+- isEditing state로 텍스트 표시 ↔ 입력창 전환
+- editText state로 수정 중 텍스트를 원본과 분리해서 임시 저장
+
+  isEditing === true  → TextInput 표시 (autoFocus로 키보드 자동 올라옴)
+  isEditing === false → Text + 수정/삭제 아이콘 표시
+
+- onSubmitEditing : 키보드 확인 버튼 → updateCart 호출 후 isEditing=false
+- onBlur          : 입력창 외부 터치 → 저장 없이 isEditing=false
+
+─────────────────────────────
+4. keyboardShouldPersistTaps (FlatList 터치 이슈 해결)
+─────────────────────────────
+- 문제: 키보드가 올라온 상태에서 FlatList 내부 Pressable을 누르면
+        터치가 키보드 닫기에만 소모되고 onPress가 실행되지 않음
+- 원인: FlatList(ScrollView)의 기본값이 "never"이기 때문
+
+- 해결: keyboardShouldPersistTaps="handled" 추가
+    → 자식 컴포넌트(Pressable 등)가 터치를 처리한 뒤 키보드 닫힘
+
+  <FlatList
+    keyboardShouldPersistTaps="handled"
+    ...
+  />
+
+  값 종류:
+    "never"   : 터치 → 키보드 닫힘만, onPress 실행 안 됨 (기본값)
+    "always"  : 키보드 유지, onPress 실행
+    "handled" : onPress 실행 후 키보드 닫힘 (권장)
+
