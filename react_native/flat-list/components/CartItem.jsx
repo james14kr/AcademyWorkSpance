@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Alert, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 // @expo/vector-icons: Expo에서 제공하는 아이콘 라이브러리
 // MaterialIcons, FontAwesome, Ionicons 등 다양한 아이콘 세트 사용 가능
@@ -54,9 +54,14 @@ const CartItem = ({item, updateCart, deleteCart}) => {
             />
           </Pressable>
 
-          {/* 삭제 아이콘: 누르면 deleteCart(id)를 호출해 해당 항목 삭제 */}
+          {/* 삭제 아이콘: 누르면 confirm 후 deleteCart(id)를 호출해 해당 항목 삭제 */}
           <Pressable
-            onPress={() => deleteCart(item.id)}
+            onPress={() => {
+              Alert.alert('삭제 확인', `"${item.item}"을(를) 삭제하시겠습니까?`, [
+                { text: '취소', style: 'cancel' },
+                { text: '확인', onPress: () => deleteCart(item.id) }
+              ])
+            }}
             style={styles.iconContainer}
           >
             <MaterialIcons
