@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc --noEmit)",
+      "Bash(npx eslint . --ext .ts,.tsx)",
+      "mcp__notionApi__API-post-search",
+      "mcp__notionApi__API-get-block-children",
+      "Bash(ls /d/01-STUDY/dev/workspace/react_native/community/app/\\\\\\(tabs\\\\\\)/\\\\\\(home\\\\\\)/ /d/01-STUDY/dev/workspace/react_native/community/app/\\\\\\(tabs\\\\\\)/profile/ /d/01-STUDY/dev/workspace/react_native/community/app/auth/)",
+      "mcp__notionApi__API-post-page",
+      "mcp__notionApi__API-patch-block-children"
+    ]
+  }
+}
