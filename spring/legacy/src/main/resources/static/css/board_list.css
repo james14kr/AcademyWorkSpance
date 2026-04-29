@@ -1,3 +1,7 @@
 .list-table{
   border: 1px solid black;
 }
+
+.list-table tr{
+  border: 1px solid black;
+}

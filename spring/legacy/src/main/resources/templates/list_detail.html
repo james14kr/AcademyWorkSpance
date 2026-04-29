@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시글 상세</title>
+</head>
+<body>
+  <h2>게시글 상세</h2>
+  <div>글번호: [[${boardDetail.boardNum}]]</div>
+  <div>제목: [[${boardDetail.title}]]</div>
+  <div>작성자: [[${boardDetail.writer}]]</div>
+  <div>내용: [[${boardDetail.content}]]</div>
+  <div>작성일: [[${#temporals.format(boardDetail.regDate, 'yyyy-MM-dd HH:mm')}]]</div>
+
+
+  <button
+    type="button"
+    th:onclick = "|deleteBoard(${boardDetail.boardNum})|"
+  >
+    글삭제
+  </button>
+
+  <script src="/js/board_detail.js"></script>
+</body>
+</html>

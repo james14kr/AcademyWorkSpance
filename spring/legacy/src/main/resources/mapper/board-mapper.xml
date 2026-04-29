@@ -21,6 +21,33 @@
         ORDER BY REG_DATE DESC
     </select>
 
+    <insert id="insertBoard">
+        INSERT INTO LEGACY_BOARD (
+            TITLE
+            ,WRITER
+            ,CONTENT
+        )VALUES(
+            #{title}
+            ,#{writer}
+            ,#{content}
+        )
+    </insert>
+
+    <select id="selectBoardDetail" resultMap="board">
+        SELECT BOARD_NUM
+            ,TITLE
+            ,WRITER
+            ,CONTENT
+            ,REG_DATE
+        FROM LEGACY_BOARD
+        WHERE BOARD_NUM = #{boardNum}
+    </select>
+
+    <delete id="deleteBoard">
+        DELETE FROM LEGACY_BOARD
+        WHERE BOARD_NUM = #{boardNum}
+    </delete>
+
 </mapper>
 
 
