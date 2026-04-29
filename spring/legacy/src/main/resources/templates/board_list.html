@@ -33,7 +33,7 @@
 
         <!-- 리스트에 데이터가 있다면 -->
         <th:block th:unless="${#lists.isEmpty(boardList)}">
-          <tr th:each="board : ${boardList}">
+          <tr th:each="board : ${boardList}" th:onclick="|listDetail([[${board.boardNum}]])|">
             <td>[[${board.boardNum}]]</td>
             <td th:text="${board.title}"></td>
             <td>[[${board.writer}]]</td>
