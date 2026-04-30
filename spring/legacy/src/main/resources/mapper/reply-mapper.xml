@@ -10,6 +10,33 @@
         <result property="replyWriter"  column="REPLY_WRITER"/>
         <result property="regDate"      column="REG_DATE"/>
     </resultMap>
+
+    <select id="selectReply" resultMap="reply">
+        SELECT REPLY_NUM
+            ,REPLY_CONTENT
+            ,REPLY_WRITER
+            ,REG_DATE
+        FROM LEGACY_REPLY
+        WHERE BOARD_NUM = #{boardNum}
+        ORDER BY REG_DATE DESC
+    </select>
+
+    <insert id="insertReply">
+        INSERT INTO LEGACY_REPLY(
+            REPLY_WRITER
+            ,REPLY_CONTENT
+            ,BOARD_NUM
+        )VALUES(
+            #{replyWriter}
+            ,#{replyContent}
+            ,#{boardNum}
+        )
+    </insert>
+
+    <delete id="deleteReply">
+        DELETE FROM LEGACY_REPLY
+        WHERE REPLY_NUM = #{replyNum}
+    </delete>
 </mapper>
 
 

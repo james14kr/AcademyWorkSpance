@@ -1,11 +1,14 @@
 package com.green.legacy.controller;
 
 import com.green.legacy.dto.BoardDTO;
+import com.green.legacy.dto.ReplyDTO;
 import com.green.legacy.service.BoardService;
+import com.green.legacy.service.ReplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BoardController {
 
   private final BoardService boardService;
+  private final ReplyService replyService;
 
   //게시글 목록 페이지("/boards/getList")
   //조회, 등록, 삭제, 수정이든 전부 @RequestMapping 어노테이션 사용
@@ -45,7 +49,12 @@ public class BoardController {
   @RequestMapping("/write")
   public String write(@ModelAttribute BoardDTO boardDTO){
     System.out.println(boardDTO);
-    return "";
+    boardService.insertBoard(boardDTO);
+
+    //return에는 기본적으로 html파일을 작성
+    //추가적으로 html파일명이 아니라, controller의 다른 메서드를 호출 가능
+    //"redirect: 요청 url"
+    return "reg_result"; //게시글 등록 성공 여부에 따라 alert를 띄울 목적의 html
   }
 
   //데이터 받는 2번째 방식
@@ -55,6 +64,47 @@ public class BoardController {
     System.out.println("name: " + name);
     System.out.println("age: " + age);
     return "";
+  }
+
+  @RequestMapping("/detail")
+  public String detail(Model model, @ModelAttribute BoardDTO boardDTO){
+    model.addAttribute("boardDetail", boardService.selectBoardDetail(boardDTO));
+
+    ReplyDTO replyDTO = new ReplyDTO();
+    replyDTO.setBoardNum(boardDTO.getBoardNum());
+
+    model.addAttribute("replyList", replyService.selectReply(replyDTO));
+    return "list_detail";
+
+  }
+
+  @RequestMapping("/delete")
+  public String delete(@RequestParam(name = "boardNum") int boardNum){
+    boardService.deleteBoard(boardNum);
+    return "delete_result";
+  }
+
+  //글 수정
+  @RequestMapping("/update-form/{boardNum}")
+  public String goUpdate(@PathVariable("boardNum") int boardNum, Model model){
+    System.out.println(boardNum);
+
+    BoardDTO boardDTO = new BoardDTO();
+    boardDTO.setBoardNum(boardNum);
+
+    //게시글 상세 조회
+    BoardDTO result = boardService.selectBoardDetail(boardDTO);
+    model.addAttribute("board", result);
+
+    //상세 정보를 html에 전달
+
+    return "update-form";
+  }
+
+  @RequestMapping("/update")
+  public String update(@ModelAttribute BoardDTO boardDTO){
+    boardService.updateBoard(boardDTO);
+    return "redirect:/boards/detail?boardNum=" + boardDTO.getBoardNum();
   }
 
 
