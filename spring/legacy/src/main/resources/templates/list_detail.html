@@ -12,14 +12,63 @@
   <div>내용: [[${boardDetail.content}]]</div>
   <div>작성일: [[${#temporals.format(boardDetail.regDate, 'yyyy-MM-dd HH:mm')}]]</div>
 
+  <div>
+    <button
+      type="button"
+      onclick = "location.href='/boards/getList'"
+    >
+      글목록
+    </button>
+  
+    <button
+      type="button"
+      onclick = "history.back(-1)"
+    >
+      글목록
+    </button>
+  
+    <button
+      type="button"
+      th:onclick ="|location.href='/boards/update-form/${boardDetail.boardNum}'|"
+    >
+      글수정
+    </button>
+  
+    <button
+      type="button"
+      th:onclick = "|deleteBoard(${boardDetail.boardNum})|"
+    >
+      글삭제
+    </button>
+  </div>
 
-  <button
-    type="button"
-    th:onclick = "|deleteBoard(${boardDetail.boardNum})|"
-  >
-    글삭제
-  </button>
+  <div>
+    <form action="/replies/insert" method="post">
+      <input type="hidden" name="boardNum" th:value="${boardDetail.boardNum}">
+      <input type="text" name="replyWriter">
+      <input type="text" name="replyContent">
+      <button type="submit">댓글 등록</button>
+    </form>
+  </div>
+
+  <div>
+    <th:block th:if="${#lists.isEmpty(replyList)}">
+      <p>댓글이 없습니다.</p>
+    </th:block>
+    <th:block th:unless="${#lists.isEmpty(replyList)}">
+      <div th:each=" reply: ${replyList}">
+        <span>[[${reply.replyWriter}]]</span>
+        <span>[[${reply.replyContent}]]</span>
+        <td>[[${#temporals.format(reply.regDate, 'yyyy-MM-dd HH:mm')}]]</td>
+        <button type="button" th:onclick="|location.href='@{/replies/delete(replyNum=${reply.replyNum}, boardNum=${boardDetail.boardNum})}'|">
+          삭제
+        </button>
+      </div>
+    </th:block>
+  </div>
 
   <script src="/js/board_detail.js"></script>
+
+  
 </body>
 </html>

@@ -48,6 +48,13 @@
         WHERE BOARD_NUM = #{boardNum}
     </delete>
 
+    <update id="updateBoard">
+        UPDATE LEGACY_BOARD
+        SET TITLE = #{title}
+            ,CONTENT = #{content}
+        WHERE BOARD_NUM = #{boardNum}
+    </update>
+
 </mapper>
 
 
