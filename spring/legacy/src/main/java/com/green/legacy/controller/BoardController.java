@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller //객체 생성, 해당 클래스는 컨트롤러 역할임을 스프링한테 인지(비동기 미지원)
 @RequestMapping("/boards")
 @RequiredArgsConstructor
@@ -25,15 +27,22 @@ public class BoardController {
   //컨트롤러에서 요청을 처리하는 메서드의 리턴타입은 무조건 문자열
   //레거시 방식에서 리턴되는 정보는 보여질 html파일명을 의미함
   @RequestMapping("/getList")
-  public String getList(Model model){
-    //필요한 데이터 조회
-    String name = "hong";
-    int age = 20;
+  //컨트롤러의 메서드 매개변수에 dto 클래스를 전달받으면 객체를 알아서 생성
+  public String getList(BoardDTO boardDTO, Model model){
 
-    //조회한 데이터를 실음
-    model.addAttribute("data", name);
-    model.addAttribute("ageData", age);
-    model.addAttribute("boardList", boardService.selectBoardList());
+    //전체 데이터 수 조회
+    int totalBoardCnt = boardService.selectBoardCnt();
+    boardDTO.setTotalDataCnt(totalBoardCnt);
+
+    //페이징 정보 세팅
+    boardDTO.setPageInfo();
+
+    //boardDTO 정보 출력
+    System.out.println(boardDTO);
+
+   //조회한 게시글 목록을 html로 전달
+    List<BoardDTO> boardList= boardService.selectBoardList(boardDTO);
+    model.addAttribute("boardList", boardList);
     return "board_list";
   }
 
