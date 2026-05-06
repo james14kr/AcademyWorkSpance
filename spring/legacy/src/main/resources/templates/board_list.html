@@ -9,10 +9,6 @@
 </head>
 <body>
   게시글 목록 페이지
-  <div th:text="${data}"></div>
-  <div>[[${ageData}]]</div>
-  <div th:text="${boardList}"></div>
-
   <div>
     <table class="list-table">
       <thead>
@@ -43,6 +39,11 @@
       </tbody>
     </table>
 
+    <div>
+      <span th:if="${boardDTO.prev}">이전</span>
+      <th:block th:each="pageNum : ${#numbers.sequence(boardDTO.beginPage, boardDTO.endPage)}"><span>[[${pageNum}]]</span></th:block>
+      <span th:if="${boardDTO.next}">다음</span>
+    </div>
     <div>
       <button type="button" onclick="goWrite()">글 쓰기</button>
     </div>

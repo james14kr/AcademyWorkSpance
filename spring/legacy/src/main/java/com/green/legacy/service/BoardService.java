@@ -14,8 +14,8 @@ public class BoardService {
 
   private final BoardMapper boardMapper;
 
-  public List<BoardDTO> selectBoardList(){
-    return boardMapper.selectBoardList();
+  public List<BoardDTO> selectBoardList(BoardDTO boardDTO){
+    return boardMapper.selectBoardList(boardDTO);
   }
 
   public void insertBoard(BoardDTO boardDTO){
@@ -32,6 +32,10 @@ public class BoardService {
 
   public void updateBoard(BoardDTO boardDTO){
     boardMapper.updateBoard(boardDTO);
+  }
+
+  public int selectBoardCnt(){
+    return boardMapper.selectBoardCnt();
   }
 
 }

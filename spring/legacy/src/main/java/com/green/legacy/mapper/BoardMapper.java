@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface BoardMapper {
-  List<BoardDTO> selectBoardList();
+  List<BoardDTO> selectBoardList(BoardDTO boardDTO);
 
   void insertBoard(BoardDTO boardDTO);
 
@@ -17,4 +17,6 @@ public interface BoardMapper {
   void deleteBoard(int boardNum);
 
   void updateBoard(BoardDTO boardDTO);
+
+  int selectBoardCnt();
 }
