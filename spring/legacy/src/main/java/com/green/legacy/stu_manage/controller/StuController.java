@@ -1,11 +1,16 @@
 package com.green.legacy.stu_manage.controller;
 
+import com.green.legacy.stu_manage.dto.StuDTO;
 import com.green.legacy.stu_manage.service.StuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/stu")
@@ -22,5 +27,11 @@ public class StuController {
     return "stu/stu_manage";
   }
 
+  @ResponseBody
+  @RequestMapping("/list")
+  public List<StuDTO> getStuList(@RequestParam(name = "classNum")int classNum){
+    return stuService.selectStuList(classNum);
+
+  }
 
 }
