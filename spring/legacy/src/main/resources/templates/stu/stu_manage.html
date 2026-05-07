@@ -4,43 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/stu_table.css">
+
 </head>
 <body>
-  <select onchange="getStuList()" id="classSelector">
-    <option value="0">전체</option>
-    <option
-      th:each="cls : ${classList}"
-      th:value="${cls.classNum}"
-      th:text="${cls.className}"
-      th:selected="${cls.classNum == selectedClassNum}">
-    </option>
-  </select>
+  <div class="container">
+    <div class="stu_info">
+      <select onchange="asyncGetList()" id="classSelector">
+        <option value="0">전체</option>
+        <option
+          th:each="cls : ${classList}"
+          th:value="${cls.classNum}"
+          th:text="${cls.className}"
+          th:selected="${cls.classNum == selectedClassNum}">
+        </option>
+      </select>
+    
+      <br>
+    
+      <table border="1" id="list_table">
+        <thead>
+          <tr>
+            <td>No</td>
+            <td>학번</td>
+            <td>이름</td>
+            <td>학년</td>
+            <td>학급번호</td>
+            <td>학급명</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="stu, stat: ${stuList}">
+            <td>[[${stat.count}]]</td>
+            <td>[[${stu.stuNum}]]</td>
+            <td th:onclick="showScoreInput([[${stu.stuNum}]], '[[${stu.stuName}]]')">[[${stu.stuName}]]</td>
+            <td>[[${stu.stuYear}]]</td>
+            <td>[[${stu.classNum}]]</td>
+            <td>[[${stu.className}]]</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="score_info">
+      <table id="score_table">
+        
+      </table>
+    </div>
+  
+    
+  </div>
 
-  <br>
-
-  <table border="1">
-    <thead>
-      <tr>
-        <td>No</td>
-        <td>학번</td>
-        <td>이름</td>
-        <td>학년</td>
-        <td>학급번호</td>
-        <td>학급명</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="stu, stat: ${stuList}">
-        <td>[[${stat.count}]]</td>
-        <td>[[${stu.stuNum}]]</td>
-        <td>[[${stu.stuName}]]</td>
-        <td>[[${stu.stuYear}]]</td>
-        <td>[[${stu.classNum}]]</td>
-        <td>[[${stu.className}]]</td>
-      </tr>
-    </tbody>
-  </table>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="/js/stu_manage.js"></script>
 </body>
 </html>
