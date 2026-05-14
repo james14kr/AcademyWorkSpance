@@ -8,4 +8,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 //JpaRepository<Entity명, pk자료형>
 //JpaRepository 인터페이스만 상속받으면, 어떠한 코드를 작성하지 않으면 이미 CRUD는 완성
 public interface MemberRepository extends JpaRepository<Member, Long> {
+
+  //findAll(): 전체조회
+  //findById(id): 상세조회
+  //count(): 데이터 갯수 조회
+  //save(): 데이터 저장
+  //delete(): 데이터 삭제
+
 }
