@@ -1,10 +1,12 @@
 package com.green.jpa_study.service;
 
+import com.green.jpa_study.dto.MemberRequest;
 import com.green.jpa_study.dto.MemberResponse;
 import com.green.jpa_study.entity.Member;
 import com.green.jpa_study.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,5 +34,40 @@ public class MemberService {
             .map(e -> MemberResponse.convertToMemberResponse(e))
             .toList();
   }
+
+  //게시글 삽입
+  public MemberResponse create(MemberRequest memberRequest){
+
+    Member m = new Member();
+    m.setMemEmail(memberRequest.getMemEmail());
+    m.setMemName(memberRequest.getMemName());
+    m.setMemAge(memberRequest.getMemAge());
+
+    Member result = memberRepository.save(m);
+
+    return MemberResponse.convertToMemberResponse(result);
+  }
+
+  //게시글 상세 보기
+  public MemberResponse findOne(Long memNum){
+    Member m = memberRepository.findById(memNum).get();
+    return MemberResponse.convertToMemberResponse(m);
+  }
+
+  //게시글 수정
+  @Transactional
+  public MemberResponse update(Long memNum, MemberRequest memberRequest){
+    //수정하려는 회원 정보 조회
+    Member m = memberRepository.findById(memNum).get();
+
+    //Entity의 값을 변경하면 테이블의 값을 변경하는것과 같기 때문에 update 쿼리 실행되어버림
+    m.setMemName(memberRequest.getMemName());
+    m.setMemAge(memberRequest.getMemAge());
+
+    return MemberResponse.convertToMemberResponse(m);
+  }
+
+  //게시글 삭제
+
 
 }
