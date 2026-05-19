@@ -1,4 +1,4 @@
-//T: 타입 매개변수(Type Parameter)
+package generic;//T: 타입 매개변수(Type Parameter)
 //타입 인자 : 타입 매개변수에 전달된 자료형
 
 public class GBox<T> {
